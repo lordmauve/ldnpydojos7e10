@@ -63,4 +63,4 @@ if __name__ == '__main__':
 
     print 'Path:'
     for n in path:
-        print title_map.get(n, n)
+        print title_map_r.get(n, n)
