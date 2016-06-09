@@ -28,7 +28,7 @@ def try_find_path(g, start, finish):
         newpaths = []
         for path in paths:
             end = path[-1]
-            for ln in g[end]:
+            for ln in g.get(end, []):
                 if ln in been_to:
                     continue
                 if ln == finish:
