@@ -62,6 +62,9 @@ if __name__ == '__main__':
 
     start = title_map[start.lower()]
     finish = title_map[finish.lower()]
+    
+    # print to make sure our tree mapping is correct
+    print 'we will go from', title_map_r[start], 'to', title_map_r[finish]
 
     g = load_graph()
     path = try_find_path(g, start, finish)
