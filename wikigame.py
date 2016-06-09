@@ -22,21 +22,26 @@ def load_graph():
 
 def try_find_path(g, start, finish):
     paths = [[start]] 
+    been_to = set()
 
     while True:
         newpaths = []
         for path in paths:
             end = path[-1]
             for ln in g[end]:
+                if ln in been_to:
+                    continue
                 if ln == finish:
                     return path + [finish]
                 if ln not in path:
                     newpaths.append(path + [ln])
+                    been_to.add(ln)
 
         paths = newpaths
-        paths = paths[:10000]
+        paths = paths[:1000000]
 
-        print len(paths[0])
+        print len(paths), len(paths[0])
+
 
 
 
