@@ -38,7 +38,29 @@ def try_find_path(g, start, finish):
 
         print len(paths[0])
 
+
+
     
 
-g = load_graph()
-print try_find_path(g, 4, 100)
+if __name__ == '__main__':
+    import sys
+    
+    title_map = {}
+    title_map_r = {}
+    with open('titles.txt') as f:
+        for i, ln in enumerate(f):
+            title_map[ln.strip().lower()] = i + 1
+            title_map_r[i + 1] = ln.strip()
+
+    start = sys.argv[1]
+    finish = sys.argv[2]
+
+    start = title_map[start.lower()]
+    finish = title_map[finish.lower()]
+
+    g = load_graph()
+    path = try_find_path(g, start, finish)
+
+    print 'Path:'
+    for n in path:
+        print title_map.get(n, n)
